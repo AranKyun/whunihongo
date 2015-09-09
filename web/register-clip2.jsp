@@ -85,6 +85,31 @@
     }
 
 
+    function secondSelect(index){
+        if(index == 0){
+            $("#school").text("<option value="101">哲学学院</option><option value="102">国学院</option><option value="103">文学院</option><option value="104">外国语言文学学院</option><option value="105">新闻与传播学院</option><option value="106">艺术学系</option><option value="107">历史学院</option><option value="108">经济与管理学院</option><option value="109">法学院</option><option value="110">马克思主义学院</option><option value="111">社会学系</option><option value="112">政治与公共管理学院</option><option value="113">教育科学研究院</option><option value="114">信息管理学院</option><option value="115">国际教育学院</option><option value="116">数学与统计学院</option><option value="117">物理科学与技术学院</option><option value="118">化学与分子科学学院</option><option value="119">生命科学学院</option><option value="120">资源与环境科学学院</option>"
+            <option>新闻与传播学院</option>
+            <option>艺术学系</option>
+            <option>历史学院</option>
+
+            <option>经济与管理学院</option>
+            <option>法学院</option>
+            <option>马克思主义学院</option>
+            <option>社会学系</option>
+            <option>政治与公共管理学院</option>
+            <option>教育科学研究院</option>
+            <option>信息管理学院</option>
+            <option>国际教育学院</option>
+
+            <option>数学与统计学院</option>
+            <option>物理科学与技术学院</option>
+            <option>化学与分子科学学院</option>
+            <option>生命科学学院</option>
+            <option>资源与环境科学学院</option>")
+        }
+    }
+
+
 
 </script>
 <div class="col-md-8">
@@ -142,7 +167,7 @@
         <div class="form-group">
             <label class="col-xs-12 col-sm-2 control-label">学部与院系</label>
             <div class="col-xs-6 col-sm-3">
-                <select class="form-control" name="department" id="depart">
+                <select class="form-control" name="department" id="depart" onchange="secondSelect(this.selectedIndex)">
                     <option value="文理学部">文理学部</option>
                     <option value="工学部">工学部</option>
                     <option value="信息学部">信息学部</option>
@@ -150,7 +175,29 @@
                 </select>    
             </div>
             <div class="col-xs-6 col-sm-3">
-                <select class="form-control">
+                <select class="form-control" id="school">
+                    <option>哲学学院</option>
+                    <option>国学院</option>
+                    <option>文学院</option>
+                    <option>外国语言文学学院</option>
+                    <option>新闻与传播学院</option>
+                    <option>艺术学系</option>
+                    <option>历史学院</option>
+
+                    <option>经济与管理学院</option>
+                    <option>法学院</option>
+                    <option>马克思主义学院</option>
+                    <option>社会学系</option>
+                    <option>政治与公共管理学院</option>
+                    <option>教育科学研究院</option>
+                    <option>信息管理学院</option>
+                    <option>国际教育学院</option>
+
+                    <option>数学与统计学院</option>
+                    <option>物理科学与技术学院</option>
+                    <option>化学与分子科学学院</option>
+                    <option>生命科学学院</option>
+                    <option>资源与环境科学学院</option>
                 </select>    
             </div>
             <div class="col-xs-12 col-sm-4">

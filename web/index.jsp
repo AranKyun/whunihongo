@@ -23,6 +23,9 @@ session.setAttribute("rid","");
           <h1 class='index-heading'>
             やっと
             <br>君に会えた！</h1>
+          <h3>
+            <a><span>马上入会</span></a>
+          </h3>
         </div>
       </div>
     </div>

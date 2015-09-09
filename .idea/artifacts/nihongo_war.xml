@@ -2,7 +2,7 @@
   <artifact type="war" name="nihongo:war">
     <output-path>$PROJECT_DIR$/out/artifacts/nihongo_war</output-path>
     <root id="archive" name="nihongo_war.war">
-      <element id="artifact" artifact-name="nihongo:war exploded" />
+      <element id="artifact" artifact-name="ROOT" />
     </root>
   </artifact>
 </component>
