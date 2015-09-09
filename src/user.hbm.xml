@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.user" table="user">
+        <id name="stu_id">
+
+        </id>
+        <property name="username">
+
+        </property>
+        <property name="password" />
+        <property name="showname"/>
+        <property name="realname"/>
+        <property name="gender"/>
+        <property name="department"/>
+        <property name="phone"/>
+        <property name="qq"/>
+        <property name="score"/>
+    </class>
+
+</hibernate-mapping>
