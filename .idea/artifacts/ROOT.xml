@@ -1,17 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="ROOT">
+  <artifact type="war" name="ROOT">
     <output-path>$PROJECT_DIR$/out/artifacts/ROOT</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="nihongo/web/Web" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="nihongo" />
-          <element id="dir-copy" path="D:/apache-tomcat-8.0.21" />
-        </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="Struts 2" />
-        </element>
-      </element>
+    <root id="archive" name="ROOT.war">
+      <element id="artifact" artifact-name="ROOT exploded" />
     </root>
   </artifact>
 </component>

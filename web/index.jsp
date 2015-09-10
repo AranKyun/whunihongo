@@ -23,9 +23,8 @@ session.setAttribute("rid","");
           <h1 class='index-heading'>
             やっと
             <br>君に会えた！</h1>
-          <h3>
-            <a><span>马上入会</span></a>
-          </h3>
+          <a href="register.jsp" class="btn btn-default btn-md index-link" role="button">今すぐ入会！<span class="index-link-cn">马上加入</span></a>
+          <a href="#" class="btn btn-default btn-md index-link" role="button">日本語ページはこちらへ</a>
         </div>
       </div>
     </div>
@@ -86,7 +85,7 @@ session.setAttribute("rid","");
           <h3 class='text-center'>一起工作</h3>
         </div>
         <div class='col-md-4'>
-          <img class='center-block' src="icon-lollipop.png" width="100"/>
+          <img class='center-block' src="images/icon-lollipop.png" width="100"/>
           <h3 class='text-center'>更多咨询</h3>
         </div>
       </div>

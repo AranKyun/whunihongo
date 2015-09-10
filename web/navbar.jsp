@@ -85,7 +85,7 @@ user u1=(user)session.getAttribute("user");
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class='navbar-brand' href='#' style="padding-top: 15px; padding-bottom: 0px;">
+            <a class='navbar-brand' href='index.jsp' style="padding-top: 15px; padding-bottom: 0px;">
               <img alt="Brand" src='images/icon.png' width='50px' />
             </a>
             <p class="navbar-text" style='color: #FFFFFF; font-size: 20px; margin-top: 12px; margin-bottom: 12px;'> <font face="Nico">武漢大学
