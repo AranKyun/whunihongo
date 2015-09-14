@@ -130,7 +130,7 @@
                     <p>手机号与QQ号是我们与你联系的重要途径。为了能够及时将我们的新活动通知给你，请不要填写错误。</p>
                 </div>
             </div>
-            <form action="register.action" class="form-horizontal" method="post" onsubmit="register2Check()">
+            <form action="register.action" class="form-horizontal" method="post" onsubmit="return register2Check()">
                 <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">昵称</label>
 

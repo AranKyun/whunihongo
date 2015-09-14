@@ -4,6 +4,7 @@
 <html>
 <head>
     <%@ include file='head.jsp' %>
+
 </head>
 <body>
 <%@ include file='navbar.jsp' %>
@@ -66,6 +67,12 @@
                     $("#inputCheckPassword").parent().parent().attr("class", "form-group");
                 }
 
+                if(value == true){
+                    var pw_sha1 = $.md5($("#inputPassword").val());
+                    $("#inputPassword").val(pw_sha1);
+                    $("#inputCheckPassword").val(pw_sha1);
+                }
+
 
                 return value;
             }
@@ -73,7 +80,8 @@
             function confirmSkip() {
                 var v = confirm("你真的要跳过吗？如果之后想要找回该账户，请与QQ群的管理员联系。");
                 if (v == true) {
-                    alert("敬请期待！");
+
+                    window.location.href='register2.jsp';
                 }
             }
 
@@ -113,12 +121,24 @@
             <%--</h2>--%>
             <%--</div>--%>
             <%--</div>--%>
+            <%
+                //        String Sapp_id = "101225709";
+//        String Sapp_secret = "d36c04b79ddfc2503a5ff09aa994aba3";
+//        String Smy_url = "http://whunihongo.azurewebsites.net/test.jsp";
+//
+//        String code = UUID.randomUUID().toString();
+//        session.setAttribute("state", code);
+//        String dialog_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=" + Sapp_id + "&redirect_uri=" + URLEncoder.encode(Smy_url) + "&state=" + code;
+                session.setAttribute("operation",2);
+                System.out.println("myurl:"+dialog_url);
+            %>
+
             <div class="panel panel-primary visible-sm-block visible-xs-block">
                 <div class="panel-heading">
                     <p>这将使你能够管理会员账户，你可以选择以下两种方式 或者 跳过本步骤。</p>
                 </div>
             </div>
-            <p>　　使用QQ账号来登陆：<a class="bg-blue">绑定你的QQ号码</a></p>
+            <p>　　使用QQ账号来登陆：<a class="bg-blue" href="<%=dialog_url%>">绑定你的QQ号码</a></p>
 
             <p>　　或者，注册一个新账号：</p>
 

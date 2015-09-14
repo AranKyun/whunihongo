@@ -13,11 +13,12 @@ public class user {
     private String department;
     private String phone;
     private String qq;
+    private String open_id="";
     private int score=0;
-
+    private String major;
     public user(){}
 
-    public user(String sname,String rname,String gend,String stu,String depar,String ph,String q){
+    public user(String sname,String rname,String gend,String stu,String depar,String ph,String q,String m){
        showname=sname;
         gender=gend;
         realname=rname;
@@ -25,8 +26,25 @@ public class user {
         department=depar;
         phone=ph;
         qq=q;
-
+        major=m;
     }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getOpen_id() {
+        return open_id;
+    }
+
+    public void setOpen_id(String open_id) {
+        this.open_id = open_id;
+    }
+
     public String getUsername() {
         return username;
     }

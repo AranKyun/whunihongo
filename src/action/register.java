@@ -10,7 +10,9 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Created by lazier on 2015/8/24 0024.
@@ -20,20 +22,21 @@ public class register {
     private Session session;
     private Transaction transaction;
     Configuration config = new Configuration().configure();
-    //åˆ›å»ºæœåŠ¡æ³¨å†Œå¯¹è±¡
+    //´´½¨·şÎñ×¢²á¶ÔÏó
     ServiceRegistry service = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
     user u = new user();
 
-    public String register1() {
+    public String register1() throws IOException {
 
-        //åˆ›å»ºä¼šè¯å·¥å‚å¯¹è±¡
+        //´´½¨»á»°¹¤³§¶ÔÏó
         sessionFactory = config.buildSessionFactory(service);
-        //ä¼šè¯å¯¹è±¡
+        //»á»°¶ÔÏó
         session = sessionFactory.openSession();
-        //å¼€å¯äº‹åŠ¡
+        //¿ªÆôÊÂÎñ
         transaction = session.beginTransaction();
 
         HttpServletRequest request = ServletActionContext.getRequest();
+        HttpServletResponse response = ServletActionContext.getResponse();
         HttpSession session1 = request.getSession();
         session1.setAttribute("rid",request.getParameter("stu_id"));
 
@@ -41,24 +44,37 @@ public class register {
 
        try {
             u = new user(request.getParameter("showname"), request.getParameter("realname"),
-                   request.getParameter("gender"), request.getParameter("stu_id"), request.getParameter("department"), request.getParameter("phone"), request.getParameter("qq"));
-        session.save(u);
-           transaction.commit();//æäº¤äº‹åŠ¡
-           session.close();//å…³é—­ä¼šè¯
-           sessionFactory.close();//å…³é—­ä¼šè¯å·¥å‚
+                   request.getParameter("gender"), request.getParameter("stu_id"), request.getParameter("department"), request.getParameter("phone"), request.getParameter("qq"),request.getParameter("major"));
+        System.out.println("stuid is£º" + request.getParameter("stu_id"));
+
+           session.save(u);
+
         return "success";
        }
        catch (Exception e){
+           response.setCharacterEncoding("utf8");response.setContentType("text/html; charset=utf8");
+           response
+                   .getWriter()
+                   .print(
+                           "<script language=javascript>alert('Ñ§ºÅÒÑ±»×¢²á£¡');window.location.href='register.jsp';</script>");
          return null;
         }
+       finally {
+           transaction.commit();//Ìá½»ÊÂÎñ
+           session.close();//¹Ø±Õ»á»°
+           sessionFactory.close();//¹Ø±Õ»á»°¹¤³§
+           System.out.println("close session!");
+       }
     }
     public String register2(){
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpSession session1 = request.getSession();
+
+
         sessionFactory = config.buildSessionFactory(service);
-        //ä¼šè¯å¯¹è±¡
+        //»á»°¶ÔÏó
         session = sessionFactory.openSession();
-        //å¼€å¯äº‹åŠ¡
+        //¿ªÆôÊÂÎñ
         transaction = session.beginTransaction();
 
         try {
@@ -66,15 +82,19 @@ public class register {
             u = (user)session.load(user.class,rid);
             u.setUsername(request.getParameter("username"));
             u.setPassword(request.getParameter("password"));
-            System.out.println("è·å¾—çš„userçš„naemæ˜¯ï¼š" + u.getRealname());
+            System.out.println("»ñµÃµÄuserµÄnaemÊÇ£º" + u.getRealname());
             session.update(u);
-            transaction.commit();//æäº¤äº‹åŠ¡
-            session.close();//å…³é—­ä¼šè¯
-            sessionFactory.close();//å…³é—­ä¼šè¯å·¥å‚
+
             return "success";
         }
         catch (Exception e){
             return null;
+        }
+        finally {
+            transaction.commit();//Ìá½»ÊÂÎñ
+            session.close();//¹Ø±Õ»á»°
+            sessionFactory.close();//¹Ø±Õ»á»°¹¤³§
+            System.out.println("close session!");
         }
     }
 }

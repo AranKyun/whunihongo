@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <%
-session.setAttribute("rid","");
-  session.setAttribute("user",null);
+  session.setAttribute("qqlog",false);
+  session.setAttribute("rid","");
+
+  session.setAttribute("operation",1);
 %>
 
 <html>

@@ -106,15 +106,37 @@
                 String json_processed = mJson.group();
                 JSONObject jsob = JSONObject.fromObject(json_processed);
                 openid = jsob.get("openid").toString();
+                session.setAttribute("open_id",openid);
+            }
+
+            String infourl="https://graph.qq.com/user/get_user_info?access_token="+access_token+"&oauth_consumer_key="+app_id+"&openid="+openid;
+            String info=sendGet(infourl);
+            String nickname="";
+            Matcher infoJson = pJson.matcher(info);
+            if (mJson.find()) {
+
+                String jp = infoJson.group();
+                JSONObject userjson = JSONObject.fromObject(jp);
+                nickname = userjson.get("nickname").toString();
+                session.setAttribute("nickname",nickname);
             }
         }
     }
 
+    session.setAttribute("qqlog",true);
+    System.out.println(session.getAttribute("operation"));
+    int i=Integer.parseInt(session.getAttribute("operation").toString().trim());
+    System.out.println("Authorization code is:"+code+" ,Access token is:"+access_token+" ,OpenID is:"+openid);
+
+    if(i==2){
+        session.setAttribute("operation",1);
+        response.sendRedirect("attach.action");}
+    else{
+        response.sendRedirect("check.action");
+    }
+
 
 %>
-<%="Authorization code: " + code%><br>
-<%="Access token: " + (access_token.equals("") ? "Error" : access_token)%><br>
-<%="OpenID: " + openid%>
 
 </body>
 </html>

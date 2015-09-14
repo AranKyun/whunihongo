@@ -19,8 +19,23 @@
                         <result name="success" type="dispatcher">/register2.jsp</result>
                 </action>
             <action name="login" class="action.login">
-                <result type="dispatcher">/index.jsp</result>
+                <result type="dispatcher" name="success">/index.jsp</result>
+                <result type="dispatcher" name="failure">/index.jsp</result>
             </action>
+
+            <action name="attachqq" class="action.login" method="attachQQ">
+            <result name="success" type="dispatcher">/index.jsp</result>
+            </action>
+
+            <action name="logout" class="action.login" method="loginout">
+                <result name="success" type="dispatcher">/index.jsp</result>
+            </action>
+
+            <action name="checkqq" class="action.login" method="checkQQ">
+                <result name="success" type="dispatcher">/index.jsp</result>
+                <result name="failure" type="dispatcher">/failure.jsp</result>
+            </action>
+
 
         </package>
 </struts>

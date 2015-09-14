@@ -10,10 +10,8 @@
       <root url="jar://$PROJECT_DIR$/lib/asm.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/aspectjrt.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/aspectjweaver.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-fileupload.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-io.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/commons-lang.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/dom4j-1.6.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/freemarker.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hibernate-commons-annotations-4.0.2.Final.jar!/" />
@@ -36,6 +34,9 @@
       <root url="jar://$PROJECT_DIR$/lib/commons-beanutils-1.8.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.1.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

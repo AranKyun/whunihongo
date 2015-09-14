@@ -10,13 +10,7 @@
 <head>
     <title></title>
 </head>
-<style>
-  @font-face{
-    font-family: 'Nico';
-    src: url(nicomoji-plus_v0.9.ttf) format('truetype');
-  }
 
-</style>
 <link href="tmp.css" rel="stylesheet" type="text/css">
 
 <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

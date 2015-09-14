@@ -18,6 +18,8 @@
         <property name="phone"/>
         <property name="qq"/>
         <property name="score"/>
+        <property name="open_id"/>
+        <property name="major"/>
     </class>
 
 </hibernate-mapping>

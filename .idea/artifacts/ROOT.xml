@@ -2,7 +2,15 @@
   <artifact type="war" name="ROOT">
     <output-path>$PROJECT_DIR$/out/artifacts/ROOT</output-path>
     <root id="archive" name="ROOT.war">
-      <element id="artifact" artifact-name="ROOT exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Struts 2" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="nihongo" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="nihongo/web/Web" />
     </root>
   </artifact>
 </component>
