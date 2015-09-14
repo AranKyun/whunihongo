@@ -76,7 +76,7 @@
     String access_token = "";
     String openid = "";
 
-    if(session.getAttribute("state").equals(request.getParameter("state"))) {
+    if (session.getAttribute("state").equals(request.getParameter("state"))) {
         String app_id = "101225709";
         String app_secret = "d36c04b79ddfc2503a5ff09aa994aba3";
         String my_url = "http://whunihongo.azurewebsites.net/test.jsp";
@@ -106,33 +106,34 @@
                 String json_processed = mJson.group();
                 JSONObject jsob = JSONObject.fromObject(json_processed);
                 openid = jsob.get("openid").toString();
-                session.setAttribute("open_id",openid);
+                session.setAttribute("open_id", openid);
             }
 
-            String infourl="https://graph.qq.com/user/get_user_info?access_token="+access_token+"&oauth_consumer_key="+app_id+"&openid="+openid;
-            String info=sendGet(infourl);
-            String nickname="";
+            String infourl = "https://graph.qq.com/user/get_user_info?access_token=" + access_token + "&oauth_consumer_key=" + app_id + "&openid=" + openid;
+            String info = sendGet(infourl);
+            String nickname = "";
             Matcher infoJson = pJson.matcher(info);
-            if (mJson.find()) {
+            if (infoJson.find()) {
 
                 String jp = infoJson.group();
                 JSONObject userjson = JSONObject.fromObject(jp);
                 nickname = userjson.get("nickname").toString();
-                session.setAttribute("nickname",nickname);
+                session.setAttribute("nickname", nickname);
+                System.out.println(session.getAttribute("nickname"));
             }
         }
     }
 
-    session.setAttribute("qqlog",true);
+    session.setAttribute("qqlog", true);
     System.out.println(session.getAttribute("operation"));
-    int i=Integer.parseInt(session.getAttribute("operation").toString().trim());
-    System.out.println("Authorization code is:"+code+" ,Access token is:"+access_token+" ,OpenID is:"+openid);
+    int i = Integer.parseInt(session.getAttribute("operation").toString().trim());
+    System.out.println("Authorization code is:" + code + " ,Access token is:" + access_token + " ,OpenID is:" + openid);
 
-    if(i==2){
-        session.setAttribute("operation",1);
-        response.sendRedirect("attach.action");}
-    else{
-        response.sendRedirect("check.action");
+    if (i == 2) {
+        session.setAttribute("operation", 1);
+        response.sendRedirect("attachqq.action");
+    } else {
+        response.sendRedirect("checkqq.action");
     }
 
 

@@ -5,12 +5,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <HEADER>
     <%
+        session.setAttribute("operation", 1);
         user u1 = (user) session.getAttribute("user");
+
         if (u1 == null) {
 
             System.out.println("空用户！");
         } else {
-            System.out.println("登入用户：" + u1.getShowname());
+            System.out.println("login user：" + u1.getShowname());
         }
     %>
 
@@ -49,6 +51,7 @@
                 alert("密码不能为空");
                 return false;
             }
+
             if (inputCode.length <= 0) {
                 alert("请输入验证码！");
                 return false;
@@ -58,10 +61,6 @@
                 lcreateCode();
                 return false;
             }
-
-
-            var pw_sha1 = $.md5($("#lpasswordid").val());
-            $("#lpasswordid").val(pw_sha1);
             return true;
         }
     </script>
@@ -92,37 +91,83 @@
                         </p>
                     </div>
 
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <c:if test="${u1==null}">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    <a href="register.jsp"> <font size="+1" face='Nico'>入会</font>
-                                        <br>报名</a>
-                                </li>
-                                <li id="userLogin">
-                                    <a href="#">
-                                        <font size="+1" face='Nico'>会員ログイン</font>
-                                        <br>会员登录</a>
-                                </li>
-                            </ul>
-                        </c:if>
-                        <%--如果有用户登入--%>
-                        <c:if test="${u1!=null}">
-                            <%
-                                String realname = u1.getRealname();
-                            %>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    <a href=""> <font size="+1" face='Nico'><%=realname%>，您好！</font></a>
-                                </li>
+                        <%
+                            boolean isQQVisitor;
+                            try{
+                                isQQVisitor = session.getAttribute("qqVisitor").equals(true);
+                            }
+                            catch(Exception e){
+                                isQQVisitor = false;
+                            }
 
-                                <li>
-                                    <A href="logout.action"> <font size="+1" face='Nico'>退出</font></A>
-                                </li>
-                            </ul>
-                        </c:if>
+
+                            if (u1 != null) {
+                                System.out.println("user log");
+                                String realname = u1.getRealname();
+                        %>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <A href=""><font size="+1">
+                                    个人中心</font>
+                                </A>
+                            </li>
+
+                            <li>
+                                <a> <font size="+1"><%=realname%>，您好！</font></a>
+                            </li>
+
+                            <li>
+                                <A href="logout.action"> <font size="+1">退出</font></A>
+                            </li>
+                        </ul>
+
+
+                        <%
+                        } else if (isQQVisitor == true) { //如果qq暂时登录
+                        %>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <A href=""><font size="+1">
+                                    个人中心</font>
+                                </A>
+                            </li>
+
+                            <li>
+                                <a> <font size="+1"><%=session.getAttribute("nickname")%>，您好！</font></a>
+                            </li>
+
+                            <li>
+                                <A href="logout.action"> <font size="+1">退出</font></A>
+                            </li>
+                        </ul>
+                        <%
+
+                        } else { //如果没有用户登录
+
+
+                        %>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="register.jsp"> <font size="+1" face='Nico'>入会</font>
+                                    <br>报名</a>
+                            </li>
+                            <li id="userLogin">
+                                <a href="#">
+                                    <font size="+1" face='Nico'>会員ログイン</font>
+                                    <br>会员登录</a>
+                            </li>
+                        </ul>
+
+                        <%
+                            }
+                        %>
                     </div>
+
                     <!-- /.navbar-collapse --> </div>
                 <!-- /.container-fluid --> </nav>
         </div>
@@ -180,6 +225,12 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-3 col-sm-offset-3">
+                                <div class="checkbox">
+                                    <label style="font-size:0.8em">
+                                        <input name="passerby" type="hidden" id="passerby" value="passerby"/>
+
+                                    </label>
+                                </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="checkbox">
@@ -210,7 +261,7 @@
 
                             %>
 
-                            <%="<a href='" + dialog_url + "'>"%><img src="images/login1.png"/></a>
+                            <a href="<%=dialog_url%>"><img src="images/login1.png"/></a>
                         </div>
                     </form>
                 </div>

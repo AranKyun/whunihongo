@@ -105,32 +105,9 @@
                 </div>
             </div>
 
-            <%--<div class="col-md-8">--%>
-            <%--<div class="page-header row text-center">--%>
-            <%--<div class="col-sm-4">--%>
-            <%--<h2>资料填写</h2>--%>
-            <%--</div>--%>
-            <%--<div class="col-sm-4">--%>
-            <%--<h2>--%>
-            <%--<small>设置账号</small>--%>
-            <%--</h2>--%>
-            <%--</div>--%>
-            <%--<div class="col-sm-4">--%>
-            <%--<h2>--%>
-            <%--<small>完成注册</small>--%>
-            <%--</h2>--%>
-            <%--</div>--%>
-            <%--</div>--%>
+
             <%
-                //        String Sapp_id = "101225709";
-//        String Sapp_secret = "d36c04b79ddfc2503a5ff09aa994aba3";
-//        String Smy_url = "http://whunihongo.azurewebsites.net/test.jsp";
-//
-//        String code = UUID.randomUUID().toString();
-//        session.setAttribute("state", code);
-//        String dialog_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=" + Sapp_id + "&redirect_uri=" + URLEncoder.encode(Smy_url) + "&state=" + code;
                 session.setAttribute("operation",2);
-                System.out.println("myurl:"+dialog_url);
             %>
 
             <div class="panel panel-primary visible-sm-block visible-xs-block">

@@ -7,6 +7,8 @@
 </head>
 <body>
 <%@ include file='navbar.jsp' %>
+
+
 <div class="container bottom-padded">
     <div class="row">
         <div class="col-md-4 top-padded hidden-sm hidden-xs">
