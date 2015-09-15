@@ -24,7 +24,7 @@
             </action>
 
             <action name="attachqq" class="action.login" method="attachQQ">
-            <result name="success" type="dispatcher">/index.jsp</result>
+            <result name="success" type="dispatcher">/register2.jsp</result>
             </action>
 
             <action name="logout" class="action.login" method="loginout">
