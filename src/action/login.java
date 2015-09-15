@@ -84,7 +84,8 @@ public class login {
             HttpServletRequest request = ServletActionContext.getRequest();
             HttpServletResponse response = ServletActionContext.getResponse();
             HttpSession session1 = request.getSession();
-            session1.removeAttribute("user");
+            session1.setAttribute("user", null);
+            session1.setAttribute("qqVisitor", false);
 
             response.setCharacterEncoding("utf8");
             response.setContentType("text/html; charset=utf8");
@@ -118,12 +119,6 @@ public class login {
             u.setUsername(u.getQq());
             u.setOpen_id(openid);
 
-            response.setCharacterEncoding("utf-8");
-            response.setContentType("text/html; charset=utf8");
-            response
-                    .getWriter()
-                    .print(
-                            "<script language=javascript>alert('°ó¶¨³É¹¦£¡');window.location.href='index.jsp';</script>");
             return "success";
         } catch (Exception e) {
             e.printStackTrace();

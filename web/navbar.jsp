@@ -180,46 +180,34 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" style="color: #565A55;font-family: fantasy;font-weight: 600;">用户登录*</h4>
+                    <h4 class="modal-title">用户登录</h4>
                 </div>
                 <div class="modal-body">
                     <%--登录的表单--%>
-                    <form class="form-horizontal" role="form" style="font-size:0.8em;color:#333;margin-top:10px;"
-                          action="login!login1.action" onsubmit="return loginCheck()" method="post">
+                    <form class="form-horizontal" role="form" action="login!login1.action" onsubmit="return loginCheck()" method="post">
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label"
-                                   style="font-weight:600;font-size: 1.4em;margin-right: -20px;color: #595757;">
-                                账 &nbsp 号
-                            </label>
+                            <label for="lusernameid" class="col-sm-3 control-label">账　号</label>
 
                             <div class="col-sm-7">
-                                <input type="text" name="lusername" id="lusernameid" class="form-control"
-                                       placeholder="QQ号或注册账号">
+                                <input type="text" name="lusername" id="lusernameid" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label"
-                                   style="font-weight:600;font-size: 1.4em;margin-right: -20px;color: #595757;">
-                                密 &nbsp 码
-                            </label>
+                            <label class="col-sm-3 control-label">密　码</label>
 
                             <div class="col-sm-7 ">
-                                <input type="password" name="lpassword" id="lpasswordid" class="form-control"
-                                       placeholder="长度大于等于6">
+                                <input type="password" name="lpassword" id="lpasswordid" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="input2"
-                                   style="font-weight:600;font-size: 1.4em;margin-right: -20px;color: #595757;">
-                                验证码
-                            </label>
+                            <label class="col-sm-3 control-label" for="input2">验证码</label>
 
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <input type="text" id="input2" class="form-control" placeholder="">
                             </div>
-                            <div class="col-md-2">
-                                <input type="text" id="lcheckCode" class="form-control" style="font-size:1.4em"
+                            <div class="col-md-3">
+                                <input type="text" id="lcheckCode" class="form-control text-center" style="font-size:1.4em"
                                        readonly="readonly" oncontextmenu="return false" onclick="lcreateCode()">
                             </div>
                         </div>
@@ -241,14 +229,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-6">
-                                <button type="submit" class="btn btn-success"
-                                        style="font-size:1.8em; width:100%;;font-weight:600;margin-top:15px;">
-                                    登 录
-                                </button>
+                            <div class="col-sm-offset-3 col-sm-3">
+                                <button type="submit" class="btn btn-success btn-block"><strong><font size="+1">登　录</font></strong></button>
 
                             </div>
-                            <br>
 
                             <%
                                 String Sapp_id = "101225709";
@@ -260,13 +244,11 @@
                                 String dialog_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=" + Sapp_id + "&redirect_uri=" + URLEncoder.encode(Smy_url) + "&state=" + code;
 
                             %>
+                            <a href="<%=dialog_url%>" ><img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_5.png" height="39px" class="qq-link"/></a>
 
-                            <a href="<%=dialog_url%>"><img src="images/login1.png"/></a>
+
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-
                 </div>
             </div>
         </div>

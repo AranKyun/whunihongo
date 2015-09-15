@@ -188,7 +188,7 @@
                         </select>
                     </div>
                     <div class="col-xs-6 col-sm-3">
-                        <select class="form-control" id="school">
+                        <select class="form-control" id="school" name="major">
                             <option value='101'>哲学学院</option>
                             <option value='102'>国学院</option>
                             <option value='103'>文学院</option>

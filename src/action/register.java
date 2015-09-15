@@ -38,7 +38,6 @@ public class register {
         try {
             user u = new user(request.getParameter("showname"), request.getParameter("realname"),
                     request.getParameter("gender"), request.getParameter("stu_id"), request.getParameter("department"), request.getParameter("phone"), request.getParameter("qq"), request.getParameter("major"));
-            System.out.println("stuid is��" + request.getParameter("stu_id"));
 
             session.save(u);
 
@@ -49,7 +48,7 @@ public class register {
             response
                     .getWriter()
                     .print(
-                            "<script language=javascript>alert('ѧ���ѱ�ע�ᣡ');window.location.href='register.jsp';</script>");
+                            "<script language=javascript>alert('绑定成功！');window.location.href='register.jsp';</script>");
             return null;
         } finally {
             transaction.commit();//�ύ����
@@ -74,7 +73,6 @@ public class register {
             user u = (user) session.load(user.class, rid);
             u.setUsername(request.getParameter("username"));
             u.setPassword(request.getParameter("password"));
-            System.out.println("��õ�user��naem�ǣ�" + u.getRealname());
             session.update(u);
 
             return "success";
