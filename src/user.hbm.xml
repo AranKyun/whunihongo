@@ -14,12 +14,13 @@
         <property name="showname"/>
         <property name="realname"/>
         <property name="gender"/>
-        <property name="department"/>
         <property name="phone"/>
         <property name="qq"/>
-        <property name="score"/>
         <property name="open_id"/>
         <property name="major"/>
+        <property name="register_date" />
+        <property name="role"/>
+        <property name="paid"/>
     </class>
 
 </hibernate-mapping>

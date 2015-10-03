@@ -1,32 +1,58 @@
 package entity;
 
+import java.util.Date;
+
 /**
  * Created by lazier on 2015/8/24 0024.
  */
 public class user {
-    private String username="";
-    private String password="";
+    private String username = "";
+    private String password = "";
     private String showname;
     private String realname;
-    private  String gender;
+    private String gender;
     private String stu_id;
-    private String department;
     private String phone;
     private String qq;
-    private String open_id="";
-    private int score=0;
+    private String open_id = "";
     private String major;
-    public user(){}
+    private Date register_date;
+    private int role=1;
+    private boolean paid = false;
 
-    public user(String sname,String rname,String gend,String stu,String depar,String ph,String q,String m){
-       showname=sname;
-        gender=gend;
-        realname=rname;
-        stu_id=stu;
-        department=depar;
-        phone=ph;
-        qq=q;
-        major=m;
+    public user() {
+    }
+
+    public user(String sname, String rname, String gend, String stu, String ph, String q, String m, Date d) {
+        showname = sname;
+        gender = gend;
+        realname = rname;
+        stu_id = stu;
+        phone = ph;
+        qq = q;
+        major = m;
+        register_date = d;
+    }
+
+    public boolean getPaid(){return paid;}
+
+    public void setPaid(boolean b){this.paid = paid;}
+
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public Date getRegister_date() {
+        return register_date;
+    }
+
+    public void setRegister_date(Date d) {
+        register_date = d;
     }
 
     public String getMajor() {
@@ -47,14 +73,6 @@ public class user {
 
     public String getUsername() {
         return username;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public void setUsername(String username) {
@@ -99,14 +117,6 @@ public class user {
 
     public void setStu_id(String stu_id) {
         this.stu_id = stu_id;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     public String getPhone() {

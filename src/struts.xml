@@ -36,6 +36,11 @@
                 <result name="failure" type="dispatcher">/failure.jsp</result>
             </action>
 
+            <action name="queryresult" class="action.query">
+                <result name="success" type="dispatcher">/manage.jsp</result>
+                <result name="failure" type="dispatcher">/fail.jsp</result>
+            </action>
+
 
         </package>
 </struts>

@@ -61,6 +61,8 @@
                 lcreateCode();
                 return false;
             }
+                var pw_sha1 = $.md5($("#lpasswordid").val());
+                $("#lpasswordid").val(pw_sha1);
             return true;
         }
     </script>
@@ -111,7 +113,12 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             <li>
-                                <A href=""><font size="+1">
+                                <%
+                                    String url = "";
+                                    if(u1.getRole() == 0)
+                                        url = "manage.jsp";
+                                %>
+                                <A href="<%=url%>"><font size="+1">
                                     个人中心</font>
                                 </A>
                             </li>
@@ -206,7 +213,7 @@
                             <div class="col-sm-4">
                                 <input type="text" id="input2" class="form-control" placeholder="">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-sm-3">
                                 <input type="text" id="lcheckCode" class="form-control text-center" style="font-size:1.4em"
                                        readonly="readonly" oncontextmenu="return false" onclick="lcreateCode()">
                             </div>
